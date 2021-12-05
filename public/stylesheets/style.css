@@ -1,8 +1,15 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  text-align: center;
+}
+ul {
+  list-style: none;
 }
 
 a {
-  color: #00B7FF;
+  text-decoration: none;
+  display: inline-block;
+  padding: 2vh;
+}
+a:hover {
+  border-left: red solid 2vh;
 }
