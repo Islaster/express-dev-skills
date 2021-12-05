@@ -15,7 +15,6 @@ function getAll() {
 }
 
 function getOne(id) {
-  S;
   return skills.find((skill) => skill.id == id);
 }
 function getSubs(id) {
