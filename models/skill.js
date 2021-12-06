@@ -28,7 +28,7 @@ function getSubs(id) {
 
 function create(skillObj) {
   skillObj.id = Math.floor(Math.random() * 1000000);
-  skillObj.sub = ["none"];
+  skillObj.sub = ["vanilla"];
   skills.push(skillObj);
 }
 
