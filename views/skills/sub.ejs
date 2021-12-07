@@ -21,14 +21,53 @@
         <li class="nav-item">
           <a class="nav-link" href="/skills/new">New Skill</a>
         </li>
+        <li><form action="/skills/<%= skills.id%>?_method=PUT" method="POST">
+          <button class="btn btn-success" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
+            Edit Skill Name
+          </button>
+          <div class="collapse collapse-vertical" id="collapseWidthExample">
+            <input name="talent">
+            <button type="submit" class="btn btn-success" >Edit</button>
+          </div>
+        </div> 
+      </form></li>
+      <li><form action="/skills/<%= skills.id%>" method="POST">
+        <button class="btn btn-success" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
+          Add Sub Skill
+        </button>
+        <div class="collapse collapse-vertical" id="collapseWidthExample">
+          <input name="sub">
+          <button type="submit" class="btn btn-success" >ADD</button>
+        </div>
+      </div> 
+    </form></li>
       </ul>
       </form>
     </div>
   </div>
 </nav>
-<ul>
+<table class="table table-hover">
+<tbody>
   <% subs.forEach(s =>{ %>
-  <li><%= s %></li>
+    <tr>
+  <td><%= s %></td>
+  <td>
+    <form action="/skills/<%=skills.id%>/<%= s %>?_method=DELETE" method="POST">
+      <button type="submit" class="btn btn-danger">X</button>
+    </form>
+  </td>
+  <td><form action="/skills/<%= skills.id%>?_method=PUT" method="POST">
+    <button class="btn btn-success" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
+      Edit Sub Skill Name
+    </button>
+    <div class="collapse collapse-vertical" id="collapseWidthExample">
+      <input name="sub">
+      <button type="submit" class="btn btn-success" >Edit</button>
+    </div>
+  </div> 
+</form></td>
+    </tr>
   <%});%>
-</ul>
+</tbody>
+</table>
 <%- include('../partials/foot') %>

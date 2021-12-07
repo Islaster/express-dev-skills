@@ -5,13 +5,17 @@ module.exports = {
   getOne,
   getSubs,
   create,
+  createSub,
   deleteOne,
+  deleteOneSub,
+  edit,
+  editSub,
 };
 
 const skills = [
   { id: 164651, talent: "JavaScript", sub: ["Dom", "Jquery", "Vanilla"] },
-  { id: 979469, talent: "Html", sub: ["none"] },
-  { id: 465162, talent: "CSS", sub: ["bootstrap"] },
+  { id: 979469, talent: "Html", sub: ["vanilla"] },
+  { id: 465162, talent: "CSS", sub: ["bootstrap", "vanilla"] },
 ];
 
 function getAll() {
@@ -32,7 +36,27 @@ function create(skillObj) {
   skills.push(skillObj);
 }
 
+function createSub(id, sub) {
+  const i = skills.findIndex((skill) => skill.id == id);
+  skills[i].sub.push(sub);
+}
+
+function deleteOneSub(id) {
+  const index = skills.findIndex((skill) => skill.id == id);
+  skills[index].sub.pop();
+}
+
 function deleteOne(id) {
   const index = skills.findIndex((skill) => skill.id == id);
   skills.splice(index, 1);
+}
+
+function edit(id, talent) {
+  const index = skills.findIndex((skill) => skill.id == id);
+  skills[index].talent = talent;
+}
+
+function editSub(id, sub) {
+  const index = skills.findIndex((skill) => skill.id == id);
+  skills[index].sub = sub;
 }

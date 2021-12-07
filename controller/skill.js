@@ -5,7 +5,11 @@ module.exports = {
   show,
   new: newSkill,
   create,
+  createSub,
   delete: deleteSkill,
+  edit,
+  editSub,
+  deleteSub,
 };
 
 function index(req, res) {
@@ -33,7 +37,27 @@ function create(req, res) {
   res.redirect("/skills");
 }
 
+function createSub(req, res) {
+  skill.createSub(req.params.id, req.body.sub);
+  res.redirect(`/skills/${req.params.id}`);
+}
+
 function deleteSkill(req, res) {
   skill.deleteOne(req.params.id);
   res.redirect("/skills");
+}
+
+function deleteSub(req, res) {
+  skill.deleteOneSub(req.params.id);
+  res.redirect(`/skills/${req.params.id}`);
+}
+
+function edit(req, res) {
+  skill.edit(req.params.id, req.body.talent);
+  res.redirect("/skills");
+}
+
+function editSub(req, res) {
+  skill.editSub(req.params.id, req.body.sub);
+  res.redirect(`/skills/${req.params.id}`);
 }
